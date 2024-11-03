@@ -37,7 +37,7 @@ public static boolean ex8(int number, int divisor) {
 		   if (i<0) {
 			   return 0;
 		   }
-		   if (arr[i]>=0) {
+		   if (arr[i]>0) {
 		   return countPositiveNumbers(arr,i-1)+1;
 	   }
 		   else {
