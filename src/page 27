@@ -1,0 +1,85 @@
+package recursion;
+
+public class Main{
+
+	public static void main(String[]args) {
+	int[] arr = {6,7,8,12,30}
+		System.out.println(sumArry(arr, 3));
+		System.out.println(countPositiveNumbers(arr, 4));
+		System.out.println(indexOfNum(arr, 12,0));
+		System.out.println(ascendingOrder(arr, 0));
+		System.out.println(notContainPrime(arr, arr.length -1 ));
+	}
+
+public static boolean ex8(int number, int divisor) {
+		if( number < 2 || number % divisor == 0 )
+		{
+			return false;
+		}
+		if (divisor * divisor > number )
+		{
+			return true;
+		}
+		
+		return ex8(number, divisor + 1);
+	
+	}
+
+//תרגילים 14-18
+	public static int sumArry(int[]arr,int i) {
+		   if (i==0) {
+			   return arr[i];
+		   }
+		   return sumArry(arr,i-1)+arr[i];
+	   }
+	   
+	   public static int countPositiveNumbers(int[]arr,int i) {
+		   if (i<0) {
+			   return 0;
+		   }
+		   if (arr[i]>=0) {
+		   return countPositiveNumbers(arr,i-1)+1;
+	   }
+		   else {
+		        return countPositiveNumbers(arr, i - 1); 
+		   }
+	   }
+	   
+	   public static int indexOfNum(int[]arr,int num,int i) {
+		   while (i<arr.length) {
+		   if (num==arr[i]) {
+			   return i;
+		   }
+		   else {
+		   return indexOfNum(arr,num,i+1);
+	   }
+}
+			   return -1;
+		   }
+		   
+	   public static boolean ascendingOrder(int[] arr, int i) {
+		if (i >= arr.length - 1) {
+			return true; 
+		}
+		if (arr[i] > arr[i + 1]) {
+			return false; 
+		}
+			return ascendingOrder(arr, i + 1); 
+	   }
+			
+	public static boolean notContainPrime(int[] arr, int i) {
+		if( i == 0 ) {
+			return !ex8(arr[i], 2);
+		}
+		
+		if (ex8(arr[i], 2)) {
+			return false;
+		}
+		
+		
+		return notContainPrime(arr, i-1);
+	
+	}
+	
+
+}
